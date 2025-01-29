@@ -285,7 +285,7 @@ const fetchStats = async (
     stats.totalCommits = user.contributionsCollection.totalCommitContributions;
   }
 
-  stats.totalPRs = await fetch(`https://api.github.com/search/issues?q=is:pr+author:andreichirila0712+is:merged`);
+  stats.totalPRs = user.mergedPullRequests.totalCount;
   if (include_merged_pull_requests) {
     stats.totalPRsMerged = user.mergedPullRequests.totalCount;
     stats.mergedPRsPercentage =
