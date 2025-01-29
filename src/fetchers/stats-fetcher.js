@@ -285,12 +285,10 @@ const fetchStats = async (
     stats.totalCommits = user.contributionsCollection.totalCommitContributions;
   }
 
-  stats.totalPRs = user.pullRequests.totalCount;
-  if (include_merged_pull_requests) {
-    stats.totalPRsMerged = user.mergedPullRequests.totalCount;
-    stats.mergedPRsPercentage =
-      (user.mergedPullRequests.totalCount / user.pullRequests.totalCount) * 100;
-  }
+  stats.totalPRs = user.mergedPullRequests.totalCount;
+  stats.totalPRsMerged = user.mergedPullRequests.totalCount; 
+  stats.mergedPRsPercentage = 100;
+
   stats.totalReviews =
     user.contributionsCollection.totalPullRequestReviewContributions;
   stats.totalIssues = user.openIssues.totalCount + user.closedIssues.totalCount;
